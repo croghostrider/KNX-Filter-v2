@@ -38,7 +38,7 @@ export function getAllSrcDst (data) {
 export function filterKnxData (data, src, dst, cov) {
   const xmlKnx = [{ CommunicationLog: { Telegram: [], _xmlns: 'http://knx.org/xml/telegrams/01' } }]
   const valuesCov = {}
-  if (src === '') { console.log('src ist leer') }
+  if (src === '') { console.log('src is empty') }
   for (let i = 0; i < data.length; i++) {
     const telegram = decode(data[i]._RawData)
     if (src.includes(telegram.src) || dst.includes(telegram.dst)) {

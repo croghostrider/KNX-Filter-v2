@@ -2,9 +2,9 @@
   "name": "knx-filter-v2",
   "version": "1.0.0",
   "description": "KNX Telegram filter Web-App built using advanced JavaScript's syntax.",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "npx standard --fix",
+    "lint": "npx standard --fix",
     "build": "browserify src/index.js -o dist/bundle.js",
     "watch": "watchify src/index.js -o dist/bundle.js -v"
   },
@@ -21,10 +21,11 @@
   "dependencies": {
     "@widgetjs/tree": "^1.8.3",
     "browserify": "^17.0.0",
-    "fast-xml-parser": "^4.0.15",
+    "fast-xml-parser": "^4.1.1",
     "watchify": "^4.0.0"
   },
   "devDependencies": {
-    "standard": "^17.0.0"
+    "standard": "^17.0.0",
+    "uglify-js": "^3.17.4"
   }
 }
