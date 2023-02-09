@@ -12,6 +12,7 @@ const prozessStatus = document.querySelector('.status')
 const settingsContainer = document.querySelector('.settings-container')
 const downloadBtn = document.querySelector('#downloadBtn')
 const COV = document.querySelector('#COV')
+const totalFound = document.querySelector('#totalFound')
 const toast = document.querySelector('.toast')
 
 const maxAllowedSize = 100 * 1024 * 1024 // 100mb
@@ -171,6 +172,7 @@ function analyzeFile () {
     settingsContainer.style.display = 'block'
     telegrams = jsonObj.CommunicationLog.Telegram
     console.log('found ' + telegrams.length + ' telegrams')
+    totalFound.innerText = 'Total ' + telegrams.length + ' telegrams'
     settingsContainer.style.display = 'block'
     fillTree(telegrams)
   }
@@ -239,8 +241,15 @@ dropZone.addEventListener('dragleave', (e) => {
 
 // file input change and uploader
 fileInput.addEventListener('change', () => {
-  if (fileInput.files[0].size > maxAllowedSize) {
-    showToast('Max file size is 100MB')
+  const ext = fileInput.files[0].type
+  if (ext === 'text/xml') {
+    if (fileInput.files[0].size > maxAllowedSize) {
+      showToast('Max file size is 100MB')
+      fileInput.value = '' // reset the input
+      return
+    }
+  } else {
+    showToast('Only XML files are allowed')
     fileInput.value = '' // reset the input
     return
   }

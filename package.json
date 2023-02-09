@@ -4,6 +4,7 @@
   "description": "KNX Telegram filter Web-App built using advanced JavaScript's syntax.",
   "main": "src/index.js",
   "scripts": {
+    "test": "mocha",
     "lint": "npx standard --fix",
     "build": "browserify src/index.js -o dist/bundle.js",
     "watch": "watchify src/index.js -o dist/bundle.js -v"
@@ -25,6 +26,7 @@
     "watchify": "^4.0.0"
   },
   "devDependencies": {
+    "mocha": "^10.2.0",
     "standard": "^17.0.0",
     "uglify-js": "^3.17.4"
   }
