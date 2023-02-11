@@ -1,0 +1,37 @@
+{
+  "name": "knx-filter-v2",
+  "version": "1.0.0",
+  "description": "KNX Telegram filter Web-App built using advanced JavaScript's syntax.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha",
+    "lint": "npx standard --fix",
+    "build": "browserify src/index.js -o dist/bundle.js",
+    "watch": "watchify src/index.js -o dist/bundle.js -v"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/croghostrider/KNX-Filter-v2.git"
+  },
+  "author": "Vinko Varkas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/croghostrider/KNX-Filter-v2/issues"
+  },
+  "homepage": "https://github.com/croghostrider/KNX-Filter-v2#readme",
+  "dependencies": {
+    "@widgetjs/tree": "^1.8.3",
+    "fast-xml-parser": "^4.1.1",
+    "playwright": "^1.30.0",
+    "puppeteer": "^19.6.3",
+    "puppeteer-core": "^19.6.3"
+  },
+  "devDependencies": {
+    "browserify": "^17.0.0",
+    "mocha": "^10.2.0",
+    "standard": "^17.0.0",
+    "uglify-js": "^3.17.4",
+    "wallabify": "^0.0.15",
+    "watchify": "^4.0.0"
+  }
+}
