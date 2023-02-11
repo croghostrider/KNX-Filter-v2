@@ -127,7 +127,7 @@ body,
   width: var(--container-width);
   height: 70px;
   border-radius: 10px;
-  margin-top: 25px;
+  margin: 25px;
   position: relative;
   display: none;
 }
@@ -209,7 +209,8 @@ body,
 }
 .filter-container label {
   margin-top: 15px;
-  font-size: 18px;
+  font-size: 16px;
+  opacity: 0.7;
 }
 
 .send-btn-container button {
@@ -276,12 +277,20 @@ ul.inner_ul li:before {
   color: #41424e;
 }
 
-ul.inner_ul li:last-child:before {
-  content: "└";
-}
-
 .inner_ul {
   padding: 0px 0px 0px 35px;
+}
+
+#treeDst .treejs li ul ul .treejs-label {
+  color: red;
+}
+
+#treeDst .treejs li ul .treejs-label {
+  color: green;
+}
+
+#treeDst .treejs li .treejs-label {
+  color: blue;
 }
 
 @media screen and (max-width: 900px) {

@@ -118,7 +118,7 @@ function formatData (data, separator) {
       const level3 = Object.keys(treeObject[level1[i]][level2[i2]])
       for (let i3 = 0; i3 < level3.length; i3++) {
         id = level1[i] + separator + level2[i2] + separator + level3[i3]
-        treeData[i].children[i2].children.push({ id, text: id })
+        treeData[i].children[i2].children.push({ id, text: id, attributes: { style: 'color:blue' } })
       }
     }
   }
@@ -172,8 +172,7 @@ function analyzeFile () {
     settingsContainer.style.display = 'block'
     telegrams = jsonObj.CommunicationLog.Telegram
     console.log('found ' + telegrams.length + ' telegrams')
-    totalFound.innerText = 'Total found' + telegrams.length + ' telegrams'
-    settingsContainer.style.display = 'block'
+    totalFound.innerText = 'Total found ' + telegrams.length + ' telegrams'
     fillTree(telegrams)
   }
   reader.readAsBinaryString(file)
@@ -215,11 +214,16 @@ dropZone.addEventListener('drop', (e) => {
   console.log('dropped', e.dataTransfer.files[0].name)
   const files = e.dataTransfer.files
   if (files.length === 1) {
-    if (files[0].size < maxAllowedSize) {
-      fileInput.files = files
-      analyzeFile()
+    const ext = files[0].type
+    if (ext === 'text/xml') {
+      if (files[0].size < maxAllowedSize) {
+        fileInput.files = files
+        analyzeFile()
+      } else {
+        showToast('Max file size is 100MB')
+      }
     } else {
-      showToast('Max file size is 100MB')
+      showToast('Only XML file logs are allowed')
     }
   } else if (files.length > 1) {
     showToast("You can't upload multiple files")
@@ -230,13 +234,10 @@ dropZone.addEventListener('drop', (e) => {
 dropZone.addEventListener('dragover', (e) => {
   e.preventDefault()
   dropZone.classList.add('dragged')
-  console.log('dropping file')
 })
 
 dropZone.addEventListener('dragleave', (e) => {
   dropZone.classList.remove('dragged')
-
-  console.log('drag ended')
 })
 
 // file input change and uploader
