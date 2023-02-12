@@ -110,7 +110,7 @@ function formatData (data, separator) {
   const level1 = Object.keys(treeObject)
   for (let i = 0; i < level1.length; i++) {
     let id = level1[i] + separator
-    treeData.push({ id, text: id, children: [] })
+    treeData.push({ id, text: level1[i], children: [] })
     const level2 = Object.keys(treeObject[level1[i]])
     for (let i2 = 0; i2 < level2.length; i2++) {
       id = level1[i] + separator + level2[i2]

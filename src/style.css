@@ -281,6 +281,10 @@ ul.inner_ul li:before {
   padding: 0px 0px 0px 35px;
 }
 
+.treejs .treejs-label {
+  cursor: pointer;
+}
+
 #treeDst .treejs li ul ul .treejs-label {
   color: red;
 }

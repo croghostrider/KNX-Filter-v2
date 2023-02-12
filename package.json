@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/croghostrider/KNX-Filter-v2#readme",
   "dependencies": {
-    "@widgetjs/tree": "github:kxxt/treejs",
+    "@widgetjs/tree": "github:croghostrider/treejs",
     "fast-xml-parser": "^4.1.1"
   },
   "devDependencies": {
