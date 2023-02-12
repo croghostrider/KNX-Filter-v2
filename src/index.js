@@ -172,7 +172,7 @@ function analyzeFile () {
     settingsContainer.style.display = 'block'
     telegrams = jsonObj.CommunicationLog.Telegram
     console.log('found ' + telegrams.length + ' telegrams')
-    totalFound.innerText = 'Total found ' + telegrams.length + ' telegrams'
+    totalFound.innerText = 'Total found: ' + telegrams.length + ' telegrams'
     fillTree(telegrams)
   }
   reader.readAsBinaryString(file)
