@@ -261,42 +261,6 @@ body,
   background-image: url(https://img.icons8.com/color/48/000000/minus.png);
 }
 
-ul {
-  list-style: none;
-  padding: 0px 0px 0px 20px;
-}
-
-ul.inner_ul li:before {
-  content: "├";
-  font-size: 18px;
-  margin-left: -11px;
-  margin-top: -5px;
-  vertical-align: middle;
-  float: left;
-  width: 8px;
-  color: #41424e;
-}
-
-.inner_ul {
-  padding: 0px 0px 0px 35px;
-}
-
-.treejs .treejs-label {
-  cursor: pointer;
-}
-
-#treeDst .treejs li ul ul .treejs-label {
-  color: red;
-}
-
-#treeDst .treejs li ul .treejs-label {
-  color: green;
-}
-
-#treeDst .treejs li .treejs-label {
-  color: blue;
-}
-
 @media screen and (max-width: 900px) {
   :root {
     --container-width: 320px;

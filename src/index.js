@@ -135,7 +135,8 @@ function fillTree (data) {
   // eslint-disable-next-line no-unused-vars
   const treeDst = new Tree('#treeDst', {
     data: dataDst,
-    closeDepth: 2,
+    closeDepth: 1,
+    console: true,
     onChange: function () {
       console.log(this.values)
       filterDst = this.values
@@ -144,7 +145,7 @@ function fillTree (data) {
   // eslint-disable-next-line no-unused-vars
   const treeSrc = new Tree('#treeSrc', {
     data: dataSrc,
-    closeDepth: 2,
+    closeDepth: 1,
     onChange: function () {
       console.log(this.values)
       filterSrc = this.values
