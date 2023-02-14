@@ -70,7 +70,7 @@ function filterTelegram () {
   const length = telegrams.length
   for (let i = 0; i < length; i++) {
     const telegram = decode(telegrams[i]._RawData)
-    if (filterDst.includes(telegram.dst) || filterSrc.includes(telegram.scr)) {
+    if (filterDst.includes(telegram.dst) || filterSrc.includes(telegram.src)) {
       if (COV.checked) {
         if (Object.prototype.hasOwnProperty.call(valuesCov, telegram.dst)) {
           if (String(valuesCov[telegram.dst]) !== String(telegram.data)) {
