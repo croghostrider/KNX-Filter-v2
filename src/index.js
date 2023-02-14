@@ -136,6 +136,7 @@ function fillTree (data) {
   const treeDst = new Tree('#treeDst', {
     data: dataDst,
     closeDepth: 1,
+    console: true,
     onChange: function () {
       console.log(this.values)
       filterDst = this.values
@@ -162,6 +163,16 @@ function analyzeFile () {
   progressContainer.style.display = 'block'
   // eslint-disable-next-line no-undef
   const reader = new FileReader()
+  // listen for upload progress
+  reader.onprogress = function (event) {
+    // find the percentage of uploaded
+    const percent = Math.round((100 * event.loaded) / event.total)
+    console.log(percent + '% uploaded')
+    progressPercent.innerText = percent
+    const scaleX = `scaleX(${percent / 100})`
+    bgProgress.style.transform = scaleX
+    progressBar.style.transform = scaleX
+  }
   reader.onload = function (event) {
     const data = event.target.result
     const jsonObj = parser.parse(data)
@@ -176,17 +187,6 @@ function analyzeFile () {
     fillTree(telegrams)
   }
   reader.readAsBinaryString(file)
-  // listen for upload progress
-  reader.onprogress = function (event) {
-    // find the percentage of uploaded
-    const percent = Math.round((100 * event.loaded) / event.total)
-    console.log(percent + '% uploaded')
-    progressPercent.innerText = percent
-    const scaleX = `scaleX(${percent / 100})`
-    bgProgress.style.transform = scaleX
-    progressBar.style.transform = scaleX
-  }
-
   // handle error
   reader.onerror = function () {
     showToast('Error in upload.')
