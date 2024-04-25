@@ -15,7 +15,7 @@ const COV = document.querySelector('#COV')
 const totalFound = document.querySelector('#totalFound')
 const toast = document.querySelector('.toast')
 
-const maxAllowedSize = 100 * 1024 * 1024 // 100mb
+const maxAllowedSize = 135 * 1024 * 1024 // 135mb
 const options = {
   ignoreAttributes: false,
   attributeNamePrefix: '_',
